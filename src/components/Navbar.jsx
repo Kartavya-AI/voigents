@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import voigentsLogo from '../assets/voigentslogo.jpeg';
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -18,31 +19,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2 text-white text-xl font-semibold">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-            >
-              <path 
-                d="M12 2C8 2 6 4 6 8C6 12 8 14 12 14C16 14 18 12 18 8C18 4 16 2 12 2Z" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-              <path 
-                d="M12 22C16 22 18 20 18 16C18 12 16 10 12 10C8 10 6 12 6 16C6 20 8 22 12 22Z" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-            </svg>
-            <span>Voiceflow</span>
+            <img src={voigentsLogo} alt="Voigents" className="h-8 w-auto" />
           </div>
 
           {/* Desktop Menu */}

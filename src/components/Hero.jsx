@@ -1,4 +1,5 @@
 import React from 'react';
+import voigentsLogo from '../assets/voigentslogo.jpeg';
 
 const Hero = () => {
   return (
@@ -63,12 +64,7 @@ const Hero = () => {
                 </div>
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-center gap-2 text-white mb-8">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="mb-2">
-                      <path d="M12 2C8 2 6 4 6 8C6 12 8 14 12 14C16 14 18 12 18 8C18 4 16 2 12 2Z" stroke="white" strokeWidth="2"/>
-                      <path d="M12 22C16 22 18 20 18 16C18 12 16 10 12 10C8 10 6 12 6 16C6 20 8 22 12 22Z" stroke="white" strokeWidth="2"/>
-                      <circle cx="12" cy="12" r="1.5" fill="white"/>
-                    </svg>
-                    <span className="text-xl font-semibold">Voiceflow</span>
+                    <img src={voigentsLogo} alt="Voigents" className="h-10 w-auto mb-2" />
                     <span className="text-sm opacity-80">Connecting</span>
                   </div>
                   <div className="flex flex-col gap-4">
@@ -134,11 +130,7 @@ const Hero = () => {
               </div>
               <div className="p-6 flex flex-col gap-4 max-h-[500px] overflow-y-auto">
                 <div className="flex items-center gap-3 mb-4">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-600">
-                    <path d="M12 2C8 2 6 4 6 8C6 12 8 14 12 14C16 14 18 12 18 8C18 4 16 2 12 2Z" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M12 22C16 22 18 20 18 16C18 12 16 10 12 10C8 10 6 12 6 16C6 20 8 22 12 22Z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-                  </svg>
+                  <img src={voigentsLogo} alt="Voigents" className="h-8 w-auto" />
                   <h2 className="text-2xl font-semibold text-gray-900 m-0">Tico</h2>
                 </div>
                 <div className="bg-gray-100 text-gray-900 p-3.5 rounded-lg max-w-[80%] leading-relaxed">
@@ -177,7 +169,7 @@ const Hero = () => {
                   <span className="text-xl cursor-pointer">🎤</span>
                 </div>
                 <div className="text-center text-xs text-gray-400 pt-2 mt-2 border-t border-gray-200">
-                  Powered by Voiceflow Privacy
+                  Powered by Voigents Privacy
                 </div>
               </div>
             </div>
