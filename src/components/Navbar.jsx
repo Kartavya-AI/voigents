@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import voigentsLogo from '../assets/voigentslogo.jpeg';
 
 const Navbar = () => {
@@ -18,9 +19,9 @@ const Navbar = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-white text-xl font-semibold">
+          <Link to="/" className="flex items-center gap-2 text-white text-xl font-semibold hover:opacity-80 transition-opacity">
             <img src={voigentsLogo} alt="Voigents" className="h-8 w-auto" />
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
@@ -43,9 +44,13 @@ const Navbar = () => {
               </a>
               {activeDropdown === 'usecases' && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg py-2 min-w-[220px] shadow-2xl z-50 transition-opacity duration-200">
-                  <a href="#automate-support" className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
+                  <Link 
+                    to="/automate-support" 
+                    onClick={() => setActiveDropdown(null)}
+                    className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm"
+                  >
                     Automate customer support
-                  </a>
+                  </Link>
                   <a href="#in-app-copilot" className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
                     Build an in-app copilot
                   </a>
@@ -195,7 +200,16 @@ const Navbar = () => {
           <div className="lg:hidden py-4 border-t border-white/10">
             <div className="flex flex-col gap-4">
               <a href="#platform" className="text-white/90 hover:text-white py-2">Platform</a>
-              <a href="#usecases" className="text-white/90 hover:text-white py-2">Use Cases</a>
+              <div>
+                <a href="#usecases" className="text-white/90 hover:text-white py-2 block">Use Cases</a>
+                <Link 
+                  to="/automate-support" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-white/70 hover:text-white py-2 pl-4 block text-sm"
+                >
+                  Automate customer support
+                </Link>
+              </div>
               <a href="#resources" className="text-white/90 hover:text-white py-2">Resources</a>
               <a href="#customers" className="text-white/90 hover:text-white py-2">Customers</a>
               <a href="#pricing" className="text-white/90 hover:text-white py-2">Pricing</a>
