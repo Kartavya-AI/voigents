@@ -75,7 +75,7 @@ const Conversationdesign = () => {
               <div className="lg:sticky lg:top-24 w-full lg:w-auto">
                 <div className="w-full lg:w-80 xl:w-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col max-h-[600px]">
                   {/* Chat Header */}
-                  <div className="bg-gray-800 text-white px-4 py-3 rounded-t-lg flex items-center justify-between">
+                  {/* <div className="bg-gray-800 text-white px-4 py-3 rounded-t-lg flex items-center justify-between">
                     <span className="font-medium">Tico Project Agent</span>
                     <button 
                       onClick={() => setChatOpen(false)}
@@ -86,10 +86,10 @@ const Conversationdesign = () => {
                         <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </button>
-                  </div>
+                  </div> */}
   
                   {/* Chat Messages */}
-                  <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                  {/* <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
                     {chatMessages.map((message, index) => (
                       <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                         {message.type === 'agent' && (
@@ -120,10 +120,10 @@ const Conversationdesign = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
   
                   {/* Chat Input */}
-                  <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
+                  {/* <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
                     <div className="flex items-center gap-2">
                       <input
                         type="text"
@@ -142,7 +142,7 @@ const Conversationdesign = () => {
                         </svg>
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )}

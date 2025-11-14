@@ -184,9 +184,12 @@ const Navbar = () => {
               </a>
             </li>
             <li className="relative">
-              <a href="#pricing" className="text-white/90 hover:text-white text-[0.95rem] font-normal transition-colors py-2 block">
+             <Link to="/pricing"
+              onClick={() => setActiveDropdown(null)} 
+              className="text-white/90 hover:text-white text-[0.95rem] font-normal transition-colors py-2 block">
                 Pricing
-              </a>
+              </Link>
+              
             </li>
           </ul>
 

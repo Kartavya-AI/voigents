@@ -6,6 +6,8 @@ import CustomerSupportAutomation from '../pages/CustomerSupportAutomation';
 import Inappcopilot from '../components/inappcopilot';
 import Conversationdesign from '../components/Conversationdesign';
 import Contactcenterautomation from '../components/Contactcenterautomation';
+import Pricing from '../components/Pricing';
+import ContactSales from '../components/ContactSales';
 const AppRouter = () => {
   return (
     <Router>
@@ -15,7 +17,9 @@ const AppRouter = () => {
           <Route path="automate-support" element={<CustomerSupportAutomation />} />
           <Route path="inapp-copilot" element={<Inappcopilot />} />
           <Route path="conversation-design" element={<Conversationdesign />} />
-          <Route path="contact-center-automation" element={<Contactcenterautomation />} />  
+          <Route path="contact-center-automation" element={<Contactcenterautomation />} />
+          <Route path="contact-sales" element={<ContactSales />} />
+          <Route path="pricing" element={<Pricing />} />
         </Route>
       </Routes>
     </Router>

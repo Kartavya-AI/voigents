@@ -74,6 +74,88 @@ const Contactcenterautomation = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Showcase Section */}
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+        <div className="bg-[#070b1a] rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.45)] overflow-hidden border border-white/10 relative">
+          <div className="absolute inset-0 opacity-40 pointer-events-none">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0)',
+                backgroundSize: '20px 20px'
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full">
+            <div className="relative w-full pb-[56.25%] rounded-[32px] overflow-hidden">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/UX8uVSKYgo0?rel=0&modestbranding=1"
+                title="Build Voice AI Agents with Voiceflow"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+        <div className="relative overflow-hidden bg-[#1c57ff] rounded-[40px] text-white p-10 sm:p-14 lg:p-16 shadow-[0_30px_60px_rgba(28,87,255,0.3)]">
+          <div className="absolute inset-0 opacity-25 pointer-events-none">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle at 8px 8px, rgba(255,255,255,0.35) 1px, transparent 0)',
+                backgroundSize: '26px 26px'
+              }}
+            ></div>
+          </div>
+          <div className="relative flex flex-col md:flex-row items-center md:items-start md:justify-between gap-10">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                Build AI Agents with control
+              </h2>
+              <p className="text-lg text-white/90 mb-8">
+                Sign up and build AI agents for free.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="bg-white text-[#1c57ff] text-base font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg shadow-white/30 hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                  Get started, it’s free
+                  <span className="text-lg">→</span>
+                </button>
+                <button className="text-white/90 font-semibold underline-offset-4 hover:underline text-base">
+                  Contact sales
+                </button>
+              </div>
+            </div>
+            <div className="hidden md:block flex-1 text-right">
+              <pre className="text-[8px] sm:text-[9px] leading-[0.9] text-white/70 font-mono whitespace-pre">
+{`        +@@@@@@%#+=--:..          
+      *@@@@@@@@@@@%#+=-:.       
+    =@@@@@@@@@@@@@@@@@%#*=-.    
+   *@@@@@@@@@@@@@@@@@@@@@%#+-   
+  -@@@@@@@@@@@@@@@@@@@@@@@@#+.  
+  %@@@@@@@@@@@@@@@@@@@@@@@@@%+. 
+ .@@@@@@@@@@@@@@@@@@@@@@@@@@@%+ 
+ .@@@@@@@@@@@@@@@@@@@@@@@@@@@%+ 
+  %@@@@@@@@@@@@@@@@@@@@@@@@@%+. 
+  -@@@@@@@@@@@@@@@@@@@@@@@@#+.  
+   *@@@@@@@@@@@@@@@@@@@@@%#+-   
+    =@@@@@@@@@@@@@@@@@%#*=-.    
+      *@@@@@@@@@@@%#+=-:.       
+        +@@@@@@%#+=--:..        `}
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
