@@ -43,30 +43,48 @@ const Navbar = () => {
                 Use Cases
               </a>
               {activeDropdown === 'usecases' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg py-2 min-w-[220px] shadow-2xl z-50 transition-opacity duration-200">
-                  <Link 
-                    to="/automate-support" 
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm"
-                  >
-                    Automate customer support
-                  </Link>
-                  <a href="#in-app-copilot" className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
-                    Build an in-app copilot
-                  </a>
-                  <a href="#conversation-design" className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
-                    Improve conversation design
-                  </a>
-                  <a href="#contact-center" className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
-                    Contact center automation
-                  </a>
-                  <div className="h-px bg-white/10 my-2"></div>
-                  <a href="#customer-stories" className="flex items-center justify-between px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
-                    Read customer stories
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                      <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 bg-transparent z-50"
+                  onMouseEnter={() => handleMouseEnter('usecases')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg py-2 min-w-[220px] shadow-2xl transition-opacity duration-200">
+                    <Link 
+                      to="/automate-support" 
+                      onClick={() => setActiveDropdown(null)}
+                      className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm"
+                    >
+                      Automate customer support
+                    </Link>
+                    <Link 
+                      to="/inapp-copilot" 
+                      onClick={() => setActiveDropdown(null)}
+                      className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm"
+                    >
+                      Build an in-app copilot
+                    </Link>
+                    
+                    <Link 
+                    to="/conversation-design"
+                     onClick={() => setActiveDropdown(null)} 
+                     className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
+                      Improve conversation design
+                    </Link>
+
+                    <Link 
+                    to="/contact-center-automation"
+                     onClick={() => setActiveDropdown(null)} 
+                     className="block px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
+                      Contact center automation
+                    </Link>
+                    <div className="h-px bg-white/10 my-2"></div>
+                    <a href="#customer-stories" className="flex items-center justify-between px-4 py-2 text-white/90 hover:bg-white/5 hover:text-white rounded-md transition-colors text-sm">
+                      Read customer stories
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               )}
             </li>
@@ -79,76 +97,82 @@ const Navbar = () => {
                 Resources
               </a>
               {activeDropdown === 'resources' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg p-6 min-w-[280px] sm:min-w-[500px] lg:min-w-[600px] max-w-[90vw] shadow-2xl z-50 transition-opacity duration-200">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                    <div className="flex flex-col gap-3">
-                      <a href="#blog" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <span className="text-xl flex-shrink-0 mt-0.5">📝</span>
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Blog</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Everything you need to know about conversational AI, at your fingertips.</div>
-                        </div>
-                      </a>
-                      <a href="#hire-expert" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <span className="text-xl flex-shrink-0 mt-0.5">👤</span>
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Hire a Voiceflow Expert</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Get help building your next project from a certified Voiceflow Expert.</div>
-                        </div>
-                      </a>
-                      <a href="#templates" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <span className="text-xl flex-shrink-0 mt-0.5">📚</span>
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Templates</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Discover our library of agent building templates. Search by use case, product, creator & more.</div>
-                        </div>
-                      </a>
-                      <a href="#integrations" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <span className="text-xl flex-shrink-0 mt-0.5">🔗</span>
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Integrations</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Connect your existing techstack into your Voiceflow agents.</div>
-                        </div>
-                      </a>
-                      <a href="#pathways" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <span className="text-xl flex-shrink-0 mt-0.5">🗺️</span>
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Pathways</div>
-                          <div className="text-white/60 text-sm leading-relaxed">A publication for designers, developers, tinkerers, and trailblazers.</div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <a href="#discord" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Discord Community</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Join our fast-growing community of AI agent designers and developers.</div>
-                        </div>
-                      </a>
-                      <a href="#github" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">GitHub</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Explore pre-built code examples and repos to use in agent projects.</div>
-                        </div>
-                      </a>
-                      <a href="#youtube" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">YouTube Tutorials</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Learn from video tutorials and workshops created by Voiceflow.</div>
-                        </div>
-                      </a>
-                      <a href="#events" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Virtual Events</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Join live and on-demand workshops with our team of expert agent builders.</div>
-                        </div>
-                      </a>
-                      <a href="#apps" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                        <div>
-                          <div className="font-medium text-white text-[0.95rem] mb-1">Apps</div>
-                          <div className="text-white/60 text-sm leading-relaxed">Third party apps to extend Voiceflow's functionality.</div>
-                        </div>
-                      </a>
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 bg-transparent z-50"
+                  onMouseEnter={() => handleMouseEnter('resources')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg p-6 min-w-[280px] sm:min-w-[500px] lg:min-w-[600px] max-w-[90vw] shadow-2xl transition-opacity duration-200">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                      <div className="flex flex-col gap-3">
+                        <a href="#blog" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <span className="text-xl flex-shrink-0 mt-0.5">📝</span>
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Blog</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Everything you need to know about conversational AI, at your fingertips.</div>
+                          </div>
+                        </a>
+                        <a href="#hire-expert" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <span className="text-xl flex-shrink-0 mt-0.5">👤</span>
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Hire a Voiceflow Expert</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Get help building your next project from a certified Voiceflow Expert.</div>
+                          </div>
+                        </a>
+                        <a href="#templates" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <span className="text-xl flex-shrink-0 mt-0.5">📚</span>
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Templates</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Discover our library of agent building templates. Search by use case, product, creator & more.</div>
+                          </div>
+                        </a>
+                        <a href="#integrations" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <span className="text-xl flex-shrink-0 mt-0.5">🔗</span>
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Integrations</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Connect your existing techstack into your Voiceflow agents.</div>
+                          </div>
+                        </a>
+                        <a href="#pathways" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <span className="text-xl flex-shrink-0 mt-0.5">🗺️</span>
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Pathways</div>
+                            <div className="text-white/60 text-sm leading-relaxed">A publication for designers, developers, tinkerers, and trailblazers.</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <a href="#discord" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Discord Community</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Join our fast-growing community of AI agent designers and developers.</div>
+                          </div>
+                        </a>
+                        <a href="#github" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">GitHub</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Explore pre-built code examples and repos to use in agent projects.</div>
+                          </div>
+                        </a>
+                        <a href="#youtube" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">YouTube Tutorials</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Learn from video tutorials and workshops created by Voiceflow.</div>
+                          </div>
+                        </a>
+                        <a href="#events" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Virtual Events</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Join live and on-demand workshops with our team of expert agent builders.</div>
+                          </div>
+                        </a>
+                        <a href="#apps" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                          <div>
+                            <div className="font-medium text-white text-[0.95rem] mb-1">Apps</div>
+                            <div className="text-white/60 text-sm leading-relaxed">Third party apps to extend Voiceflow's functionality.</div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

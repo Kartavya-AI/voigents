@@ -2,17 +2,33 @@ import React, { useState } from 'react';
 import viewImage from '../assets/view.png';
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
+import CTASection from './CTASection';
 
-import CTASection from '../components/CTASection';
-
-const CustomerSupportAutomation = () => {
+const Inappcopilot = () => {
   const [chatOpen, setChatOpen] = useState(true);
   const [chatMessages, setChatMessages] = useState([
-    { type: 'agent', text: 'Hi, Jane. Welcome back - how can help?' },
-    { type: 'user', text: 'The testing tool is not working.' },
-    { type: 'agent', text: 'Apologies to hear you are having issues with testing. Is this with workspace #251?' },
+    { type: 'agent', text: 'Hello! How can I help with your project?' },
+    { type: 'user', text: "I can't get the Knowledge Base API to work." },
+    { type: 'agent', text: 'No problem. Can you share the code snippet from the API call so I can review?' },
     { type: 'user', text: 'Yes', isButton: true },
-    { type: 'agent', text: 'Okay - I just created a ticket for you and our team is investigating.' }
+    { 
+      type: 'user', 
+      text: `{
+  "question":"Suggest a woodworking project idea and how it would be built.",
+  "chunkLimit":2,
+  "tags":{
+    "include":{
+      "items": [
+        "beginner",
+        "small_scale"
+      ]
+    },
+    "operator":"and"
+  }
+}`,
+      isCode: true
+    },
+    { type: 'agent', text: "I see the issue. Let me rewrite this for you using a different format for \"tags\"." }
   ]);
 
   return (
@@ -24,17 +40,17 @@ const CustomerSupportAutomation = () => {
           <div>
             <div className="mb-8">
               <div className="text-blue-600 text-sm font-medium mb-4 uppercase tracking-wide">
-                Customer Support Automation
+                In-App Copilot
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Resolve 70% of support tickets, 24/7
+                Guide users through the buying journey with an AI copilot
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed">
-                Teams use Voiceflow to automate customer support at scale - from Level 1 FAQs to Level 2-3 complex questions and live agent assist.
+                Teams use Voiceflow to tailor user experiences, personalize offers, and better convert leads.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-16">
                 <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors text-base">
-                  See templates
+                  Watch how
                 </button>
                 <button className="bg-white border-2 border-gray-300 text-gray-900 px-6 py-3 rounded-md font-medium hover:border-gray-400 transition-colors text-base">
                   Book a demo
@@ -45,13 +61,13 @@ const CustomerSupportAutomation = () => {
             {/* Client Logos Section */}
             <div className="mt-20 lg:mt-24">
               <h2 className="text-lg sm:text-xl text-gray-700 mb-8 font-medium">
-                Teams of every size use Voiceflow to build customer support AI agents.
+                Teams of every size use Voiceflow to build in-app AI copilots.
               </h2>
               <div className="flex flex-wrap items-center gap-8 lg:gap-12 opacity-60">
-                <div className="text-2xl font-bold text-gray-800">superloop</div>
-                <div className="text-2xl font-bold text-gray-800">THE HOME DEPOT</div>
-                <div className="text-2xl font-bold text-gray-800">Sage</div>
                 <div className="text-2xl font-bold text-gray-800">vodafone</div>
+                <div className="text-2xl font-bold text-gray-800">Sage</div>
+                <div className="text-2xl font-bold text-gray-800">THE HOME DEPOT</div>
+                <div className="text-2xl font-bold text-gray-800">superloop</div>
               </div>
             </div>
           </div>
@@ -62,7 +78,7 @@ const CustomerSupportAutomation = () => {
               <div className="w-full lg:w-80 xl:w-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col max-h-[600px]">
                 {/* Chat Header */}
                 <div className="bg-gray-800 text-white px-4 py-3 rounded-t-lg flex items-center justify-between">
-                  <span className="font-medium">Technical help</span>
+                  <span className="font-medium">Tico Project Agent</span>
                   <button 
                     onClick={() => setChatOpen(false)}
                     className="text-white/80 hover:text-white transition-colors"
@@ -85,11 +101,15 @@ const CustomerSupportAutomation = () => {
                           </svg>
                         </div>
                       )}
-                      <div className={`max-w-[75%] ${message.type === 'user' ? 'text-right' : ''}`}>
+                      <div className={`max-w-[85%] ${message.type === 'user' ? 'text-right' : ''}`}>
                         {message.isButton ? (
                           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
                             {message.text}
                           </button>
+                        ) : message.isCode ? (
+                          <div className="bg-gray-900 text-gray-100 px-4 py-3 rounded-lg text-xs font-mono whitespace-pre-wrap overflow-x-auto border border-gray-700">
+                            {message.text}
+                          </div>
                         ) : (
                           <div className={`px-4 py-2 rounded-lg text-sm ${
                             message.type === 'user' 
@@ -130,177 +150,170 @@ const CustomerSupportAutomation = () => {
           )}
         </div>
       </section>
-
-      {/* Why Choose Voiceflow Section */}
-      <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="relative bg-blue-600 rounded-2xl lg:rounded-3xl p-8 lg:p-16 overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px'
-            }}></div>
+      {/* Why Teams Build AI Copilots Section */}
+      <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+        <div className="relative bg-blue-600 rounded-3xl p-8 lg:p-16 overflow-hidden text-white">
+          {/* Background pattern */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 2px, transparent 2px)',
+                backgroundSize: '80px 80px'
+              }}
+            ></div>
           </div>
-          
+
           <div className="relative z-10">
-            {/* Hero Section */}
-            <div className="mb-12 lg:mb-16">
-              <div className="text-blue-200 text-sm font-medium mb-4 uppercase tracking-wide">
-                Customer support
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Why teams choose Voiceflow to automate support
+            <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+              <p className="text-blue-200 text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+                Customer experience
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+                Why teams build AI copilots with Voiceflow
               </h2>
-              <p className="text-lg sm:text-xl lg:text-2xl text-blue-100 max-w-4xl leading-relaxed">
-                Leverage your customer support data across the user journey to automate level 1 FAQs and handle complex questions.
+              <p className="text-lg sm:text-xl text-blue-100">
+                Refuse to compromise on control or speed.
               </p>
             </div>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Feature 1: Native Zendesk integration */}
-              <div className="flex flex-col">
-                <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white">
-                    <path d="M12 12L36 12L12 36L36 36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="text-white">
+                    <path
+                      d="M16 12L32 12L16 36L32 36"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
-                  Native Zendesk integration
-                </h3>
-                <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                  Manage support tickets, assist live agents, and power your knowledge base with help center articles via Zendesk.
-                </p>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Copilot trained on your data</h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Train an AI agent on your product catalog, developer docs, or any knowledge source.
+                  </p>
+                </div>
               </div>
 
-              {/* Feature 2: Automate multi-step tasks */}
-              <div className="flex flex-col">
-                <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white">
-                    <path d="M16 20C16 18.8954 16.8954 18 18 18H30C31.1046 18 32 18.8954 32 20V28C32 29.1046 31.1046 30 30 30H18C16.8954 30 16 29.1046 16 28V20Z" stroke="currentColor" strokeWidth="3"/>
-                    <path d="M24 30L24 40M24 8L24 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-                    <path d="M20 14L24 18L28 14" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="text-white">
+                    <path
+                      d="M16 20C16 18.8954 16.8954 18 18 18H30C31.1046 18 32 18.8954 32 20V28C32 29.1046 31.1046 30 30 30H18C16.8954 30 16 29.1046 16 28V20Z"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                    />
+                    <path d="M24 30V40M24 8V18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                   </svg>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
-                  Automate multi-step tasks
-                </h3>
-                <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                  Create custom integrations with your existing customer tech stack using our developer toolkit to act on user data.
-                </p>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Automate multi-step tasks</h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Layer business logic to execute complex customer actions, including purchases or onboarding.
+                  </p>
+                </div>
               </div>
 
-              {/* Feature 3: Live agent hand-off */}
-              <div className="flex flex-col">
-                <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white">
-                    <path d="M12 20C12 16.6863 14.6863 14 18 14C21.3137 14 24 16.6863 24 20V28C24 31.3137 21.3137 34 18 34C14.6863 34 12 31.3137 12 28V20Z" stroke="currentColor" strokeWidth="3"/>
-                    <path d="M24 20C24 16.6863 26.6863 14 30 14C33.3137 14 36 16.6863 36 20V28C36 31.3137 33.3137 34 30 34C26.6863 34 24 31.3137 24 28V20Z" stroke="currentColor" strokeWidth="3"/>
-                    <path d="M18 24H30" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="text-white">
+                    <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="3" />
+                    <path
+                      d="M16 18H32M16 24H32M16 30H28"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
-                  Live agent hand-off
-                </h3>
-                <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                  Use our open source chat widget and custom action step to seamlessly handoff to a live chat platform.
-                </p>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Integrate with any APIs</h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Connect business and user data from any source via API to complete tasks and trigger personalized experiences.
+                  </p>
+                </div>
               </div>
 
-              {/* Feature 4: Maintain AI agent control */}
-              <div className="flex flex-col">
-                <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white">
-                    <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="3"/>
-                    <circle cx="24" cy="24" r="6" fill="currentColor"/>
-                    <path d="M24 12L24 8M24 40L24 36M12 24L8 24M40 24L36 24M18.343 18.343L15.515 15.515M32.485 32.485L29.657 29.657M18.343 29.657L15.515 32.485M32.485 15.515L29.657 18.343" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <svg width="40" height="40" viewBox="0 0 48 48" fill="none" className="text-white">
+                    <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="3" />
+                    <path
+                      d="M24 12V8M24 40V36M12 24H8M40 24H36"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
-                  Maintain AI agent control
-                </h3>
-                <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                  Curate and manage a custom knowledge base of your customer support documentation to handle complex questions and actions.
-                </p>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Maintain copilot control</h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Manage multi-LLM prompting, system prompts, and business logic in a secure cloud environment.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How it works Section */}
+      {/* How It Works Section */}
       <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="mb-12 lg:mb-16">
-          <div className="text-blue-600 text-sm font-medium mb-4 uppercase tracking-wide">
-            Overview
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+      <div className="mb-12 lg:mb-16 text-center">
+            <div className="inline-flex items-center justify-center gap-2 text-blue-600 text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-blue-200 text-base">⋃</span>
+              Use cases
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 mx-auto max-w-4xl">
             How it works
-          </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl leading-relaxed">
-            Teams use Voiceflow to build and deploy advanced customer support automation across voice and chat channels.
-          </p>
-        </div>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Teams use Voigents as a central collaborative platform to build, launch, and scale AI copilots.
+            </p>
+          </div>
 
-        {/* Divider */}
-        <div className="h-px bg-gray-200 mb-12 lg:mb-16"></div>
-
-        {/* Feature Blocks Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Block 1 */}
-          <div className="flex flex-col">
-            <h3 className="text-xl lg:text-2xl font-bold text-blue-600 mb-3">
-              Upload support docs to automate FAQs
-            </h3>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-12">
+          <div>
+            <h3 className="text-blue-600 font-semibold mb-2">Upload data to automate FAQs and questions</h3>
+            <p className="text-gray-600">
               Import data and documents to the Knowledge Base to allow Agents to respond using curated data.
             </p>
           </div>
-
-          {/* Block 2 */}
-          <div className="flex flex-col">
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-              Add Workflows to automate complex support tasks
-            </h3>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Build multi-step tasks for Agents to complete using Voiceflow's Workflow Builder.
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-2">Add workflows to automate complex tasks and questions</h3>
+            <p className="text-gray-600">
+              Build multi-step tasks for Agents to complete using Voiceflow’s Workflow Builder.
             </p>
           </div>
-
-          {/* Block 3 */}
-          <div className="flex flex-col">
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-              Integrate with live agent hand-off platforms
-            </h3>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Integrate Agents with 3rd party services and APIs using Voiceflow Functions and API blocks.
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-2">Integrate with data sources and internal systems</h3>
+            <p className="text-gray-600">
+              Integrate Agents with third-party services and APIs using Voiceflow Functions and API blocks.
             </p>
           </div>
-
-          {/* Block 4 */}
-          <div className="flex flex-col">
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-              Launch via web chat or API
-            </h3>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Launch Agents with Voigents's web chat UI or any custom interface using the Dialog API.
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-2">Embed copilot in-app</h3>
+            <p className="text-gray-600">
+              Launch Agents with Voiceflow’s embeddable web chat UI or any custom interface using the Dialog API.
             </p>
           </div>
         </div>
-      </section>
 
-      {/* Image Section */}
-      <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="w-full">
-          <img 
-            src={viewImage} 
-            alt="Knowledge Base view" 
-            className="w-full h-auto rounded-lg shadow-lg"
+        <div className="w-full rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+          <img
+            src={viewImage}
+            alt="Voiceflow workspace view"
+            className="w-full h-auto object-cover"
           />
         </div>
       </section>
 
-      {/* Trilogy Case Study Section */}
+      {/* Case Studies Section */}
       <section className="bg-gray-100 py-16 lg:py-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Client Logos */}
@@ -392,8 +405,8 @@ const CustomerSupportAutomation = () => {
         </div>
       </section>
 
-      {/* Enterprise Section */}
-      <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        {/* Enterprise Section */}
+        <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="relative bg-gray-900 rounded-2xl lg:rounded-3xl p-6 lg:p-10 overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute top-0 right-0 w-96 h-96 opacity-10">
@@ -552,47 +565,6 @@ const CustomerSupportAutomation = () => {
         </div>
       </section>
 
-      {/* Developer Platform Section */}
-      <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Side - Content */}
-          <div>
-            <div className="text-blue-600 text-sm font-medium mb-4 uppercase tracking-wide">
-              Developer platform
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Build outside the box with Voiceflow's developer platform
-            </h2>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed">
-              Use developer features to extend the platform to add custom features, integrations, interfaces, and more.
-            </p>
-            <button className="bg-gray-900 text-white px-6 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors text-base flex items-center gap-2 mb-8">
-              Go to docs
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            
-            {/* Code Snippet Image */}
-            <div className="w-full">
-              <img 
-                src={img1} 
-                alt="Code snippet" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-
-          {/* Right Side - AI Agent Configuration Interface */}
-          <div className="w-full">
-            <img 
-              src={img2} 
-              alt="AI Agent Configuration Interface" 
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Use Cases Section */}
       <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-white">
@@ -702,11 +674,9 @@ const CustomerSupportAutomation = () => {
         </div>
       </section>
 
-      {/* Blue CTA Section */}
       <CTASection />
     </div>
   );
 };
 
-export default CustomerSupportAutomation;
-
+export default Inappcopilot;
