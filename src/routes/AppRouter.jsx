@@ -8,6 +8,8 @@ import Conversationdesign from '../components/Conversationdesign';
 import Contactcenterautomation from '../components/Contactcenterautomation';
 import Pricing from '../components/Pricing';
 import ContactSales from '../components/ContactSales';
+import Blog from '../pages/Blog';
+import BookDemo from '../components/Book_Demo';
 const AppRouter = () => {
   return (
     <Router>
@@ -20,6 +22,9 @@ const AppRouter = () => {
           <Route path="contact-center-automation" element={<Contactcenterautomation />} />
           <Route path="contact-sales" element={<ContactSales />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="book-demo" element={<BookDemo />} />
+         
         </Route>
       </Routes>
     </Router>

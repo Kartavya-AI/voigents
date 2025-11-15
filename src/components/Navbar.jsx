@@ -105,13 +105,17 @@ const Navbar = () => {
                   <div className="bg-[rgba(30,30,30,0.98)] border border-white/10 rounded-lg p-6 min-w-[280px] sm:min-w-[500px] lg:min-w-[600px] max-w-[90vw] shadow-2xl transition-opacity duration-200">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                       <div className="flex flex-col gap-3">
-                        <a href="#blog" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                        <Link
+                          to="/blog"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
+                        >
                           <span className="text-xl flex-shrink-0 mt-0.5">📝</span>
                           <div>
                             <div className="font-medium text-white text-[0.95rem] mb-1">Blog</div>
                             <div className="text-white/60 text-sm leading-relaxed">Everything you need to know about conversational AI, at your fingertips.</div>
                           </div>
-                        </a>
+                        </Link>
                         <a href="#hire-expert" className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
                           <span className="text-xl flex-shrink-0 mt-0.5">👤</span>
                           <div>
@@ -198,9 +202,14 @@ const Navbar = () => {
             <button className="bg-transparent border-none text-white/90 hover:text-white text-[0.95rem] font-normal cursor-pointer transition-colors py-2">
               Sign in
             </button>
-            <button className="bg-white/10 border border-white/20 text-white text-[0.95rem] font-medium px-5 py-2 rounded-md hover:bg-white/15 hover:border-white/30 transition-all">
+
+            <Link 
+            onClick={() => setActiveDropdown(null)}
+            to="/book-demo"
+            className="bg-white/10 border border-white/20 text-white text-[0.95rem] font-medium px-5 py-2 rounded-md hover:bg-white/15 hover:border-white/30 transition-all">
               Book a demo
-            </button>
+            </Link>
+
             <button className="bg-blue-600 border-none text-white text-[0.95rem] font-medium px-5 py-2 rounded-md hover:bg-blue-700 hover:-translate-y-0.5 transition-all">
               Sign up free
             </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import voigentsLogo from '../assets/voigentslogo.jpeg';
 
 const Footer = () => {
@@ -71,7 +72,11 @@ const Footer = () => {
               <li><a href="#resources" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Resources</a></li>
               <li><a href="#templates" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Templates</a></li>
               <li><a href="#integrations" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Integrations</a></li>
-              <li><a href="#blog" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Blog</a></li>
+              <li>
+                <Link to="/blog" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">
+                  Blog
+                </Link>
+              </li>
               <li><a href="#pathways" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Pathways</a></li>
             </ul>
           </div>

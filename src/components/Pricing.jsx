@@ -2,77 +2,158 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CTASection from './CTASection';
 
-const plans = [
-  {
-    name: 'Starter',
-    description: 'For students and hobbyists',
-    price: 'Free',
-    credits: '100 credits',
-    cta: 'Get started for free',
-    features: [
-      '1 workspace',
-      '50 knowledge sources',
-      'Basic LLM models',
-      '2 agents',
-      '1 concurrent voice call'
-    ],
-    gradient: 'from-[#9fa9bb] to-[#7d879b]'
-  },
-  {
-    name: 'Pro',
-    description: 'For individual builders',
-    price: '$60',
-    suffix: '/month',
-    credits: '10k credits',
-    cta: 'Start 7-day trial',
-    features: [
-      '2 workspaces',
-      '3k knowledge sources',
-      'All LLM models',
-      'Up to 20 agents',
-      '5 concurrent voice calls'
-    ],
-    gradient: 'from-[#2d7dfc] to-[#1b65d8]'
-  },
-  {
-    name: 'Business',
-    description: 'For growing teams',
-    price: '$150',
-    suffix: '/month',
-    credits: '30k credits',
-    cta: 'Start 7-day trial',
-    features: [
-      '5 workspaces',
-      '10k knowledge sources',
-      'LLM fallback models',
-      'Unlimited agents',
-      'Priority support',
-      '15 concurrent voice calls'
-    ],
-    gradient: 'from-[#c216f2] to-[#8c05c7]'
-  },
-  {
-    name: 'Enterprise',
-    description: 'For scaling volume',
-    price: 'Custom pricing',
-    suffix: '',
-    credits: 'Billed Annually',
-    cta: 'Contact sales',
-    features: [
-      'Unlimited product usage',
-      'Agent CMS',
-      'Custom & private cloud',
-      'Dedicated training',
-      'Professional services',
-      'Migration services',
-      'Custom LLM support',
-      'Custom contracting',
-      'Custom widget privacy',
-      'User management',
-      'Single Sign-On (SSO)'
-    ],
-    gradient: 'from-[#15181f] to-[#090b10]'
-  }
+const planOptions = {
+  monthly: [
+    {
+      name: 'Starter',
+      description: 'For students and hobbyists',
+      price: 'Free',
+      credits: '100 credits',
+      cta: 'Get started for free',
+      features: [
+        '1 workspace',
+        '50 knowledge sources',
+        'Basic LLM models',
+        '2 agents',
+        '1 concurrent voice call'
+      ],
+      gradient: 'from-[#9fa9bb] to-[#7d879b]'
+    },
+    {
+      name: 'Pro',
+      description: 'For individual builders',
+      price: '$60',
+      suffix: '/month',
+      credits: '10k credits',
+      cta: 'Start 7-day trial',
+      features: [
+        '2 workspaces',
+        '3k knowledge sources',
+        'All LLM models',
+        'Up to 20 agents',
+        '5 concurrent voice calls'
+      ],
+      gradient: 'from-[#2d7dfc] to-[#1b65d8]'
+    },
+    {
+      name: 'Business',
+      description: 'For growing teams',
+      price: '$150',
+      suffix: '/month',
+      credits: '30k credits',
+      cta: 'Start 7-day trial',
+      features: [
+        '5 workspaces',
+        '10k knowledge sources',
+        'LLM fallback models',
+        'Unlimited agents',
+        'Priority support',
+        '15 concurrent voice calls'
+      ],
+      gradient: 'from-[#c216f2] to-[#8c05c7]'
+    },
+    {
+      name: 'Enterprise',
+      description: 'For scaling volume',
+      price: 'Custom pricing',
+      suffix: '',
+      credits: 'Billed Annually',
+      cta: 'Contact sales',
+      features: [
+        'Unlimited product usage',
+        'Agent CMS',
+        'Custom & private cloud',
+        'Dedicated training',
+        'Professional services',
+        'Migration services',
+        'Custom LLM support',
+        'Custom contracting',
+        'Custom widget privacy',
+        'User management',
+        'Single Sign-On (SSO)'
+      ],
+      gradient: 'from-[#15181f] to-[#090b10]'
+    }
+  ],
+  annual: [
+    {
+      name: 'Starter',
+      description: 'For students and hobbyists',
+      price: 'Free',
+      credits: '100 credits',
+      cta: 'Get started for free',
+      features: [
+        '1 workspace',
+        '50 knowledge sources',
+        'Basic LLM models',
+        '2 agents',
+        '1 concurrent voice call'
+      ],
+      gradient: 'from-[#9fa9bb] to-[#7d879b]'
+    },
+    {
+      name: 'Pro',
+      description: 'For individual builders',
+      price: '$648',
+      suffix: '/year',
+      credits: '120k credits',
+      cta: 'Start 7-day trial',
+      features: [
+        '2 workspaces',
+        '3k knowledge sources',
+        'All LLM models',
+        'Up to 20 agents',
+        '5 concurrent voice calls'
+      ],
+      gradient: 'from-[#2d7dfc] to-[#1b65d8]'
+    },
+    {
+      name: 'Business',
+      description: 'For growing teams',
+      price: '$1620',
+      suffix: '/year',
+      credits: '360k credits',
+      cta: 'Start 7-day trial',
+      features: [
+        '5 workspaces',
+        '10k knowledge sources',
+        'LLM fallback models',
+        'Unlimited agents',
+        'Priority support',
+        '15 concurrent voice calls'
+      ],
+      gradient: 'from-[#c216f2] to-[#8c05c7]'
+    },
+    {
+      name: 'Enterprise',
+      description: 'For scaling volume',
+      price: 'Custom pricing',
+      suffix: '',
+      credits: 'Billed Annually',
+      cta: 'Contact sales',
+      features: [
+        'Unlimited product usage',
+        'Agent CMS',
+        'Custom & private cloud',
+        'Dedicated training',
+        'Professional services',
+        'Migration services',
+        'Custom LLM support',
+        'Custom contracting',
+        'Custom widget privacy',
+        'User management',
+        'Single Sign-On (SSO)'
+      ],
+      gradient: 'from-[#15181f] to-[#090b10]'
+    }
+  ]
+};
+
+const annualSpotlightCtas = [
+  { label: 'Get started for free', subtext: '' },
+  { label: 'Build like: Roam', subtext: 'Trusted by builders' },
+  { label: 'Automate like: ClickUp', subtext: 'Scale ops faster' },
+  { label: 'Scale like: US Bank', subtext: 'Enterprise ready' }
 ];
 
 const planHeaders = [
@@ -217,6 +298,7 @@ const renderCellValue = (value) => {
 const Pricing = () => {
   const [billing, setBilling] = useState('monthly');
   const [openSection, setOpenSection] = useState('Build and collaborate');
+  const plans = planOptions[billing];
 
   return (
     <div className="min-h-screen bg-white pt-20 lg:pt-24 pb-16">
@@ -251,12 +333,15 @@ const Pricing = () => {
                   : 'text-gray-500 hover:text-gray-900'
               }`}
             >
-              Annual billing <span className="hidden sm:inline">(save 10%)</span>
+              Annual billing <span className="hidden sm:inline">(save 10% & all credits upfront)</span>
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div
+          key={billing}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 animate-fade-slide"
+        >
           {plans.map((plan, index) => (
             <div
               key={plan.name}
@@ -302,6 +387,23 @@ const Pricing = () => {
             </div>
           ))}
         </div>
+
+        {billing === 'annual' && (
+          <div
+            key={`${billing}-ctas`}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-6 animate-fade-slide"
+          >
+            {annualSpotlightCtas.map((cta) => (
+              <button
+                key={cta.label}
+                className="rounded-3xl border border-gray-200 py-4 px-6 text-left bg-white shadow-inner hover:shadow-lg transition-shadow"
+              >
+                {cta.subtext && <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">{cta.subtext}</p>}
+                <p className="text-base font-semibold text-gray-900">{cta.label}</p>
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
           <div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-6">
