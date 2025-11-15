@@ -1,5 +1,5 @@
-import React from 'react';  
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import viewImage from '../assets/view.png';
 import CTASection from './CTASection';
 
@@ -50,9 +50,12 @@ const Conversationdesign = () => {
                   <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors text-base">
                     Start for free
                   </button>
-                  <button className="bg-white border-2 border-gray-300 text-gray-900 px-6 py-3 rounded-md font-medium hover:border-gray-400 transition-colors text-base">
+                  <Link
+                    to="/book-demo"
+                    className="bg-white border-2 border-gray-300 text-gray-900 px-6 py-3 rounded-md font-medium hover:border-gray-400 transition-colors text-base text-center"
+                  >
                     Book a demo
-                  </button>
+                  </Link>
                 </div>
               </div>
   
@@ -402,12 +405,15 @@ const Conversationdesign = () => {
                   <p className="text-base sm:text-lg lg:text-xl text-gray-300 mb-6 leading-relaxed">
                     Voiceflow helps enterprise product teams securely build, test, launch, and manage conversational AI agents at scale.
                   </p>
-                  <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors text-base flex items-center gap-2">
+                  <Link
+                    to="/contact-sales"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors text-base"
+                  >
                     Discover Enterprise Cloud
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                       <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </button>
+                  </Link>
                 </div>
                 <div className="hidden lg:block">
                   {/* Abstract circular graphic placeholder */}

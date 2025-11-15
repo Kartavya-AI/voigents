@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import voigentsLogo from '../assets/voigentslogo.jpeg';
 
 const Hero = () => {
@@ -23,9 +24,12 @@ const Hero = () => {
               <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base lg:text-lg font-medium px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30 transition-all w-full sm:w-auto">
                 Sign up free
               </button>
-              <button className="bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30 text-white text-sm sm:text-base lg:text-lg font-medium px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg transition-all w-full sm:w-auto">
+              <Link
+                to="/book-demo"
+                className="bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30 text-white text-sm sm:text-base lg:text-lg font-medium px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg transition-all w-full sm:w-auto text-center"
+              >
                 Book a demo
-              </button>
+              </Link>
             </div>
           </div>
 

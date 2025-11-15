@@ -251,7 +251,13 @@ const Navbar = () => {
               <a href="#pricing" className="text-white/90 hover:text-white py-2">Pricing</a>
               <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
                 <button className="text-white/90 hover:text-white py-2 text-left">Sign in</button>
-                <button className="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-md">Book a demo</button>
+                <Link
+                  to="/book-demo"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-md text-center"
+                >
+                  Book a demo
+                </Link>
                 <button className="bg-blue-600 text-white px-4 py-2 rounded-md">Sign up free</button>
               </div>
             </div>

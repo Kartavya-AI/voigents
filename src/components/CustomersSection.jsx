@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CustomersSection = () => {
   return (
@@ -27,9 +28,12 @@ const CustomersSection = () => {
           </p>
 
           {/* Book a demo Button */}
-          <button className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors mb-12 lg:mb-16">
+          <Link
+            to="/book-demo"
+            className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors mb-12 lg:mb-16"
+          >
             Book a demo
-          </button>
+          </Link>
         </div>
 
         {/* Testimonials Section */}
