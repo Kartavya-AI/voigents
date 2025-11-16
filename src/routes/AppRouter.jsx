@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Home from '../pages/Home';
 import CustomerSupportAutomation from '../pages/CustomerSupportAutomation';
-import Inappcopilot from '../components/inappcopilot';
+import Inappcopilot from '../components/Inappcopilot';
 import Conversationdesign from '../components/Conversationdesign';
 import Contactcenterautomation from '../components/Contactcenterautomation';
 import Pricing from '../components/Pricing';
